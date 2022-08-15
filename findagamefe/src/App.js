@@ -6,7 +6,6 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  BrowserRouter,
 } from "react-router-dom";
 import { AuthProvider } from "./security/authContext";
 import NotFound from "./components/NotFound";
@@ -18,15 +17,10 @@ function App() {
     <Router>
       <AuthProvider>
         <Routes>
-          <Route path="/login" element={<LogIn />} />
+          <Route path="/" element={<LogIn />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/password-reset" element={<ForgotPassword />} />
           <Route path="/update-profile" element={<UpdateProfile />} />
-          <Route
-            path="/"
-            element={<RequireAuth redirectTo="/login"></RequireAuth>}
-          />
-
           <Route path="*" element={<NotFound />} />
         </Routes>
       </AuthProvider>
