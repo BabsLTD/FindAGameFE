@@ -1,24 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React from "react";
+import SignUp from "./security/signup";
+import LogIn from "./security/login";
+import LogOut from "./security/LogOut";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  BrowserRouter,
+} from "react-router-dom";
+import { AuthProvider } from "./security/authContext";
+import NotFound from "./components/NotFound";
+import RequireAuth from "./security/RequireAuth";
+import ForgotPassword from "./security/forgotPassword";
+import UpdateProfile from "./security/updateProfile";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/password-reset" element={<ForgotPassword />} />
+          <Route path="/update-profile" element={<UpdateProfile />} />
+          <Route
+            path="/"
+            element={<RequireAuth redirectTo="/login"></RequireAuth>}
+          />
+
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
   );
 }
 
