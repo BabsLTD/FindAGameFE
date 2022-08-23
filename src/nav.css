@@ -12,7 +12,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 2rem;
     padding: 0 1rem;
     box-shadow: 0 2px 10px #0a2145;
     width: 100%, 
