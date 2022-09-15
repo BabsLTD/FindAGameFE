@@ -1,7 +1,10 @@
 import axios from "axios";
-
+const localhost = "http://localhost:9090/api/";
 const myApi = axios.create({
-  baseURL: "https://babsfindagame.herokuapp.com/api/",
+  baseURL:
+    process.env.NODE_ENV === "development"
+      ? localhost
+      : "https://babsfindagame.herokuapp.com/api/",
 });
 
 export function getEvents() {
@@ -58,12 +61,17 @@ export function patchUser(newUser) {
     return data.user;
   });
 }
-export function getUserBookedEvents(firebase_id){
-  return myApi.get(`user/${firebase_id}/events`).then(({data})=>{
-    return data.userEvents
-  })
+export function getUserBookedEvents(firebase_id) {
+  return myApi.get(`user/${firebase_id}/events`).then(({ data }) => {
+    return data.userEvents;
+  });
 }
 
-export function cancelEvent(event_id){
-  return myApi.delete(`/events/${event_id}`)
+export function cancelEvent(event_id) {
+  return myApi.delete(`/events/${event_id}`);
+}
+export function getUrlUploadImage() {
+  return myApi.get("s3url").then(({ data }) => {
+    return data.url;
+  });
 }

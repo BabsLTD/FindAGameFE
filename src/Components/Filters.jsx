@@ -26,7 +26,6 @@ const Filters = ({ setEvents }) => {
     axios
       .get(`https://babsfindagame.herokuapp.com/api/events${query}`)
       .then((events) => {
-        console.log(events.data);
         setEvents(events.data.events);
       });
   }, [category, gender, ageGroup, order]);
@@ -40,7 +39,6 @@ const Filters = ({ setEvents }) => {
           id="category"
           className="filters-category"
           onChange={(e) => {
-            console.log(e.target.value);
             setCategory(e.target.value);
           }}
         >
@@ -56,7 +54,6 @@ const Filters = ({ setEvents }) => {
           className="filters-gender"
           onChange={(e) => {
             setGender(e.target.value);
-            console.log(e.target.value);
           }}
         >
           <option value="">Gender</option>
@@ -70,7 +67,6 @@ const Filters = ({ setEvents }) => {
           className="filters-age"
           onChange={(e) => {
             setAgeGroup(e.target.value);
-            console.log(e.target.value);
           }}
           placeholder="Age Group"
         >
@@ -85,7 +81,6 @@ const Filters = ({ setEvents }) => {
           id="order"
           className="filters-order"
           onChange={(e) => {
-            console.log(e.target.value);
             setOrder(e.target.value);
           }}
           placeholder="Order"
