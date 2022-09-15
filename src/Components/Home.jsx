@@ -24,7 +24,7 @@ const Home = () => {
         src="http://www.colleges-fenway.org/wp-content/uploads/2020/04/bigstock-Four-Sports-a-lot-of-balls-an-50626115-480x240.jpg"
         alt="sportimage"
       ></img>
-      <h3 className="eventslist.subtitle">Find Game's Below</h3>
+      <h3 className="eventslist.subtitle">Find Games Below</h3>
       <div className="map-wrapper">
         <Map events={events} />
       </div>
