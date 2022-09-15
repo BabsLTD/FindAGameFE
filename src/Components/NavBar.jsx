@@ -12,7 +12,9 @@ export default function Navbar() {
     if (currentUser)
       getUserByID(currentUser.uid).then((data) => {
         setUserIcon(data.profile_icon);
-      });
+      }).catch(err =>{
+        setUserIcon(guestUserIcon)
+      })
   }, [currentUser]);
 
   return (
@@ -22,16 +24,16 @@ export default function Navbar() {
       </Link>
       <div className="display">
         <ul>
-          <li className="active">
+          <div className="active">
             <CustomLink to="/events" className="eventslink">
               Games
             </CustomLink>
-          </li>
-          <li className="active">
+          </div>
+          <div className="active">
             <CustomLink to="/account" className="accountlink">
               Account
             </CustomLink>
-          </li>
+          </div>
         </ul>
         {currentUser ? (
           <img className="userimage" src={userIcon} alt="userimage"></img>
