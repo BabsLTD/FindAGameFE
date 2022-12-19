@@ -4,7 +4,7 @@ const myApi = axios.create({
   baseURL:
     process.env.NODE_ENV === "development"
       ? localhost
-      : "https://babsfindagame.herokuapp.com/api/",
+      : "https://game-finder-be.onrender.com/api/",
 });
 
 export function getEvents() {

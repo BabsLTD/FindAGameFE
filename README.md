@@ -9,7 +9,7 @@ Some of the features include:
 - You can ask questions or comment on events
 - You can create a new event which users can then sign up to
 
-You can view the app by going to the following link: https://example.netlify.app
+You can view the app by going to the following link: https://gamefinder-delta.vercel.app/
 
 To view the backend for this app please go to the following repo: https://github.com/BabsLTD/FindAGameBE
 
@@ -19,8 +19,8 @@ To clone the repo:
 
 - Visit the gitHub repo: https://github.com/BabsLTD/FindAGameFE
 - Fork the repo
-- Copy the CODE for the forked repo
+- Copy the http url for the forked repo
 - Create a new working directory in your code editor
-- Clone the repo - git clone
+- Clone the repo - git clone and past url
 - Install dependencies - npm i
 - To start the app run npm start
